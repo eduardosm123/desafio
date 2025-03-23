@@ -1,7 +1,9 @@
 export interface IUser {
+  data: {
     name: string;
-    description: string;
-    numberStars: number;
-    primaryLanguage: string;
-    externalLink: string;
+    followers: number;
+    following: number;
+    avatar_url: string;
+    bio?: string;
+  }
 }
