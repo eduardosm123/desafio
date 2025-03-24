@@ -2,9 +2,9 @@ import { FormEvent } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "../Redux/store.ts";
-import { getUser } from "../Api/github";
-import { setUsername, setUser } from "../Redux/Reducer/userSlice.ts";
-import { IUser } from "../Interfaces/User.ts";
+ 
+import { setUsername } from "../Redux/Reducer/userSlice.ts";
+ 
 import { useNavigate } from "react-router-dom";
 export default function Home() {
   const username = useSelector((state: RootState) => state.user.data.name);
@@ -13,31 +13,9 @@ export default function Home() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    async function getUserByName() {
-      try {
-        if (username) {
-          const user: any = await getUser(username);
-          const newUser: IUser = {
-            data: {
-              name: user.login ? user.login : "",
-              avatar_url: user.avatar_url ? user.avatar_url : "",
-              bio: user.bio ? user.bio : "",
-              followers: user.followers ? user.followers : 0,
-              following: user.following ? user.following : 0,
-              email: user.email ? user.email : ''
-            },
-          };
-
-           
-          dispatch(setUser(newUser.data));
-          navigate("/user");
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    if (username) {
+      navigate("/user");
     }
-    getUserByName();
   };
 
   return (

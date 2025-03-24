@@ -10,6 +10,7 @@ const initialState: IUser = {
     following: 0,
     email: "",
   },
+  load: false
 };
 
 export const userSlice = createSlice({
@@ -22,7 +23,10 @@ export const userSlice = createSlice({
     setUsername: (state, { payload }) => {
       state.data.name = payload;
     },
+    setLoad: (state, {payload}) => {
+      state.load = payload
+    }
   },
 });
 
-export const { setUser, setUsername } = userSlice.actions;
+export const { setUser, setUsername, setLoad } = userSlice.actions;
