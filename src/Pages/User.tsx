@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/store.ts";
 import { useFetchUser } from "../Hook/useFetchUser.tsx";
- 
+
 import {
   setDataRepositories,
   setPage,
@@ -58,7 +58,7 @@ export default function Home() {
                 stargazers_count,
               })
             );
-            console.log(response.data)
+            console.log(response.data);
             // console.log(newList);
             dispatch(setDataRepositories(newList));
             dispatch(setTotalPage(Math.ceil(response.data.total_count / 15)));
@@ -79,20 +79,19 @@ export default function Home() {
 
   const handlePreviousPage = () => {
     if (page > 1) {
-        dispatch(setPage(page - 1))
+      dispatch(setPage(page - 1));
     }
-}
+  };
 
-const handleNextPage = () => {
+  const handleNextPage = () => {
     if (page < totalPage) {
-        dispatch(setPage(page + 1))
+      dispatch(setPage(page + 1));
     }
-}
-
+  };
 
   if (!loading) {
     return (
-      <div className="bg-gray-700 min-h-screen w-full">
+      <div className="bg-gray-700 min-h-screen w-[100%]">
         <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
         <hr />
         <div className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col">
@@ -139,62 +138,66 @@ const handleNextPage = () => {
               </p>
             </div>
           </div>
-          <div>
-            <table className="w-full border-collapse text-sm mt-10 mb-3 bg-gray-950 rounded-lg">
-              <thead>
-                <tr>
-                  <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
-                    ID
-                  </th>
-                  <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
-                    Nome do Repositório
-                  </th>
-                  <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
-                    Número de Estrelas
-                  </th>
-                  <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
-                    Data de Criação
-                  </th>
-                  <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
-                    Data de Atualização
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-gray-800">
-                {repositories ? (
-                  repositories.map((item, key) => (
-                    <tr key={key}>
-                      <td className=" p-4 pl-8 text-gray-500 border-gray-700 text-gray-400">
-                        {item.id}
-                      </td>
-                      <td className=" p-4 pl-8 text-gray-500 border-gray-700 text-gray-400">
-                        {item.name}
-                      </td>
-                      <td className=" p-4 pl-8 text-gray-500 border-gray-700 text-gray-400">
-                        {item.stargazers_count}
-                      </td>
-                      <td className=" p-4 pl-8 text-gray-500 border-gray-700 text-gray-400">
-                        {new Date(item.created_at).getDay() +
-                          "/" +
-                          new Date(item.created_at).getMonth() +
-                          "/" +
-                          new Date(item.created_at).getFullYear()}
-                      </td>
-                      <td className=" p-4 pl-8 text-gray-500 border-gray-700 text-gray-400">
-                        {new Date(item.updated_at).getDay() +
-                          "/" +
-                          new Date(item.updated_at).getMonth() +
-                          "/" +
-                          new Date(item.updated_at).getFullYear()}
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <h1>Nenhum repositório encontrado.</h1>
-                )}
-              </tbody>
-            </table>
-            <div className="flex justify-between mt-3 mb-3">
+          <div className="w-[100%]">
+            <div className="w-[100%] sm:overflow-x-auto md:flex md:justify-center">
+              <table className="sm:w-[100vw] md:w-[90vw] border-collapse text-sm mt-10 mb-3 bg-gray-950 rounded-lg ">
+                <thead>
+                  <tr>
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                      ID
+                    </th>
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                      Nome do Repositório
+                    </th>
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                      Número de Estrelas
+                    </th>
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                      Data de Criação
+                    </th>
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                      Data de Atualização
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-gray-800">
+                  {repositories ? (
+                    repositories.map((item, key) => (
+                      <tr key={key}>
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                          {item.id}
+                        </td>
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                          {item.name}
+                        </td>
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                          {item.stargazers_count}
+                        </td>
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                          {new Date(item.created_at).getDay() +
+                            "/" +
+                            new Date(item.created_at).getMonth() +
+                            "/" +
+                            new Date(item.created_at).getFullYear()}
+                        </td>
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                          {new Date(item.updated_at).getDay() +
+                            "/" +
+                            new Date(item.updated_at).getMonth() +
+                            "/" +
+                            new Date(item.updated_at).getFullYear()}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <h1>Nenhum repositório encontrado.</h1>
+                  )}
+                </tbody>
+              </table>
+              
+            </div>
+
+            <div className="flex  justify-around mt-3 mb-3 w-[100%]">
               <button
                 className="bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
                 onClick={handlePreviousPage}
