@@ -8,6 +8,7 @@ const initialState: IUser = {
     bio: "",
     followers: 0,
     following: 0,
+    email: "",
   },
 };
 
@@ -20,8 +21,7 @@ export const userSlice = createSlice({
     },
     setUsername: (state, { payload }) => {
       state.data.name = payload;
-    }
-     
+    },
   },
 });
 

@@ -20,16 +20,17 @@ export default function Home() {
           const user: any = await getUser(username);
           const newUser: IUser = {
             data: {
-              name: user.name ? user.name : "",
+              name: user.login ? user.login : "",
               avatar_url: user.avatar_url ? user.avatar_url : "",
               bio: user.bio ? user.bio : "",
               followers: user.followers ? user.followers : 0,
               following: user.following ? user.following : 0,
+              email: user.email ? user.email : ''
             },
           };
 
            
-          dispatch(setUser(newUser));
+          dispatch(setUser(newUser.data));
           navigate("/user");
         }
       } catch (error) {
@@ -44,7 +45,7 @@ export default function Home() {
       <h1 className="text-center text-stone-100 font-bold">GitHub API</h1>
       <hr />
       <div className="flex flex-col justify-center items-center mt-[10%] w-full">
-        <form onSubmit={handleSubmit} className="w-[35%]">
+        <form onSubmit={handleSubmit} className="sm:w-[40%] md:w-[30%]">
           <label className="font-bold text-stone-100">
             Digite o nome do usuário: 
           </label>

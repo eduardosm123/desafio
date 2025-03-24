@@ -4,6 +4,7 @@ export interface IUser {
     followers: number;
     following: number;
     avatar_url: string;
-    bio?: string;
-  }
+    bio: string;
+    email?: string;
+  } 
 }
