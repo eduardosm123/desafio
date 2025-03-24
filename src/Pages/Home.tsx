@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className="bg-gray-800 min-h-screen w-full">
-      <h1 className="text-center text-stone-100 font-bold">GitHub API</h1>
+      <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
       <hr />
       <div className="flex flex-col justify-center items-center mt-[10%] w-full">
         <form onSubmit={handleSubmit} className="sm:w-[40%] md:w-[30%]">

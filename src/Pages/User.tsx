@@ -6,14 +6,12 @@ import { RootState } from "../Redux/store.ts";
 export default function Home() {
   const user = useSelector((state: RootState) => state.user);
 
-  React.useEffect(() => {
-    console.log("usuario atual: ", user);
-  }, []);
+  
 
   if (user.data) {
     return (
       <div className="bg-gray-800 min-h-screen w-full">
-        <h1 className="text-center text-stone-100 font-bold">GitHub API</h1>
+        <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
         <hr />
         <div className="flex w-[100%] h-[100%] justify-center items-center mt-8">
           <div className="sm:w-[60%] md:w-[18%] md:h-[30%] rounded-md bg-stone-500 p-5">
