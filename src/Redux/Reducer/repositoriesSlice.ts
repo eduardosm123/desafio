@@ -31,5 +31,5 @@ export const repositoriesSlice = createSlice({
   },
 });
 
-export const { setDataRepositories, setPage, setTotalPage } =
+export const { setDataRepositories, setPage, setTotalPage, setSort, setOrder } =
   repositoriesSlice.actions;

@@ -9,7 +9,6 @@ export interface IRepositoryList {
 export type RepositoryItemList = {
     id: number,
     name: string,
-    created_at: string,
     updated_at: string,
     stargazers_count: number
 }

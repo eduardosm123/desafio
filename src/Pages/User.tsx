@@ -4,7 +4,9 @@ import { useFetchUser } from "../Hook/useFetchUser.tsx";
 
 import {
   setDataRepositories,
+  setOrder,
   setPage,
+  setSort,
   setTotalPage,
 } from "../Redux/Reducer/repositoriesSlice.ts";
 import { useEffect } from "react";
@@ -46,14 +48,12 @@ export default function Home() {
             const newList = response.data.items.map(
               ({
                 id,
-                name,
-                created_at,
+                name, 
                 updated_at,
                 stargazers_count,
               }: RepositoryItemList) => ({
                 id,
-                name,
-                created_at,
+                name, 
                 updated_at,
                 stargazers_count,
               })
@@ -145,18 +145,79 @@ export default function Home() {
                   <tr>
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       ID
+                       
                     </th>
+
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       Nome do Repositório
+                      <button
+                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                        onClick={() => {
+                          dispatch(setSort("name"));
+                          dispatch(setOrder("asc"));
+                        }}
+                        disabled={!(page < totalPage)}
+                      >
+                        Asc
+                      </button>
+                      <button
+                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                        onClick={() => {
+                          dispatch(setSort("name"));
+                          dispatch(setOrder("desc"));
+                        }}
+                        disabled={!(page < totalPage)}
+                      >
+                        Desc
+                      </button>
                     </th>
+
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       Número de Estrelas
+                      <button
+                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                        onClick={() => {
+                          dispatch(setSort("stars"));
+                          dispatch(setOrder("asc"));
+                        }}
+                        disabled={!(page < totalPage)}
+                      >
+                        Asc
+                      </button>
+                      <button
+                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                        onClick={() => {
+                          dispatch(setSort("stars"));
+                          dispatch(setOrder("desc"));
+                        }}
+                        disabled={!(page < totalPage)}
+                      >
+                        Desc
+                      </button>
                     </th>
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
-                      Data de Criação
-                    </th>
+                  
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       Data de Atualização
+                      <button
+                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                        onClick={() => {
+                          dispatch(setSort("updated"));
+                          dispatch(setOrder("asc"));
+                        }}
+                        disabled={!(page < totalPage)}
+                      >
+                        Asc
+                      </button>
+                      <button
+                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                        onClick={() => {
+                          dispatch(setSort("updated"));
+                          dispatch(setOrder("desc"));
+                        }}
+                        disabled={!(page < totalPage)}
+                      >
+                        Desc
+                      </button>
                     </th>
                   </tr>
                 </thead>
@@ -174,13 +235,6 @@ export default function Home() {
                           {item.stargazers_count}
                         </td>
                         <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
-                          {new Date(item.created_at).getDay() +
-                            "/" +
-                            new Date(item.created_at).getMonth() +
-                            "/" +
-                            new Date(item.created_at).getFullYear()}
-                        </td>
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
                           {new Date(item.updated_at).getDay() +
                             "/" +
                             new Date(item.updated_at).getMonth() +
@@ -194,12 +248,11 @@ export default function Home() {
                   )}
                 </tbody>
               </table>
-              
             </div>
 
             <div className="flex  justify-around mt-3 mb-3 w-[100%]">
               <button
-                className="bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
                 onClick={handlePreviousPage}
                 disabled={!(page > 1)}
               >
@@ -209,7 +262,7 @@ export default function Home() {
                 Página {page} de {totalPage}
               </span>
               <button
-                className="bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
+                className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
                 onClick={handleNextPage}
                 disabled={!(page < totalPage)}
               >
