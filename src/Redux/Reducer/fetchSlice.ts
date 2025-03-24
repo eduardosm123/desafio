@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const fetchSlice = createSlice({
-  name: "user",
+  name: "fetch",
   initialState,
   reducers: {
     setLoading: (state, { payload }) => {
