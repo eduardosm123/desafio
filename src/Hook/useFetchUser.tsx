@@ -7,11 +7,12 @@ import { RootState } from "../Redux/store.ts";
 import { useSelector } from "react-redux";
 import { setLoad } from "../Redux/Reducer/userSlice";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useFetchUser = (username: string) => {
   const dispatch = useDispatch();
   const load = useSelector((state: RootState) => state.user.load);
-
+  const navigate = useNavigate()
   useEffect(() => {
     async function get() {
       dispatch(setLoading(true));
@@ -42,13 +43,17 @@ export const useFetchUser = (username: string) => {
             response.status
           );
           console.log(response);
-          dispatch(setError(response.statusText));
+          dispatch(setError("Erro ao buscar usuário"));
+          navigate("/error")
+          
         }
         dispatch(setLoading(false));
       } catch (error) {
-        dispatch(setError(error));
+        console.log(error)
+        dispatch(setError("Erro ao buscar usuário"));
+        navigate("/error")
       }
     }
     get();
-  }, [dispatch, load, username]);
+  }, [dispatch, load, username, navigate]);
 };

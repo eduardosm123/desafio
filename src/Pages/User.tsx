@@ -16,10 +16,11 @@ import { setError, setLoading } from "../Redux/Reducer/fetchSlice.ts";
 import { RepositoryItemList } from "../Types/Repository.ts";
 import { clearRepository, setName } from "../Redux/Reducer/repositorySlice.ts";
 import { useNavigate } from "react-router-dom";
- 
+
 export default function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
+
   const repositories = useSelector(
     (state: RootState) => state.repositories.data
   );
@@ -33,10 +34,10 @@ export default function Home() {
   const navigate = useNavigate();
   useFetchUser(user.data.name);
 
-  useEffect(()=> {
-    dispatch(clearRepository())
-  }, [dispatch])
-  
+  useEffect(() => {
+    dispatch(clearRepository());
+  }, [dispatch]);
+
   useEffect(() => {
     async function get() {
       dispatch(setLoading(true));
@@ -75,15 +76,19 @@ export default function Home() {
               "Request was not successful, status code: ",
               response.status
             );
+            dispatch(setError("Erro ao buscar repositorios"));
+            navigate("/");
           }
         }
         dispatch(setLoading(false));
       } catch (error) {
-        dispatch(setError(error));
+        console.log(error);
+        dispatch(setError("Erro ao buscar repositorios"));
+        navigate("/error");
       }
     }
     get();
-  }, [dispatch, user.data.name, page, sort, order]);
+  }, [dispatch, user.data.name, page, sort, order, navigate]);
 
   const handlePreviousPage = () => {
     if (page > 1) {
@@ -96,7 +101,6 @@ export default function Home() {
       dispatch(setPage(page + 1));
     }
   };
-
   if (!loading) {
     return (
       <div className="bg-gray-700 min-h-screen w-[100%]">
@@ -297,10 +301,33 @@ export default function Home() {
         </div>
       </div>
     );
+  } else if (!user.data.name) {
+    navigate("/");
   } else {
     return (
-      <div className="bg-gray-700 min-h-screen w-[100%]">
-        <h1>Carregando</h1>
+      <div>
+        <div className="bg-gray-800 min-h-screen w-[100%]">
+          <h1 className="text-center text-stone-100 font-bold">
+            GitHub Desafio
+          </h1>
+          <hr />
+          <div className="flex flex-col justify-center items-center mt-[10%] w-[100%] flex-wrap">
+            <div className="sm:w-[40%] md:w-[30%]">
+              <h1 className="font-bold text-stone-100 text-center">
+                Carregando... Demorando muito ? por favor tente novamente
+              </h1>
+              <br />
+              <div className="flex justify-center">
+                <button
+                  onClick={() => navigate("/")}
+                  className="bg-red-400 hover:bg-red-600 px-3 cursor-pointer py-1 rounded-md text-stone-100"
+                >
+                  Voltar ao inicio
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

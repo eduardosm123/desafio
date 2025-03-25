@@ -53,7 +53,7 @@ export default function Home() {
           <input
             type="submit"
             value="Buscar"
-            className="bg-green-400 px-3 py-1 rounded-md text-stone-100"
+            className="bg-green-400 hover:bg-green-600 px-3 cursor-pointer py-1 rounded-md text-stone-100"
           />
         </form>
       </div>
