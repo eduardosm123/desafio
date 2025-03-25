@@ -39,8 +39,7 @@ export default function useFetchRepositories(dispatch: Dispatch<UnknownAction>,
                     stargazers_count,
                   })
                 );
-                // console.log(response.data);
-                // console.log(newList);
+                 
                 dispatch(setDataRepositories(newList));
                 dispatch(setTotalPage(Math.ceil(response.data.total_count / 15)));
               } else {

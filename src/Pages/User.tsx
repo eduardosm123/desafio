@@ -1,18 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/store.ts";
 import { useFetchUser } from "../Hook/useFetchUser.tsx";
-
-import {
-  setOrder,
-  setPage,
-  setSort,
-} from "../Redux/Reducer/repositoriesSlice.ts";
+import { setPage } from "../Redux/Reducer/repositoriesSlice.ts";
 import { useEffect } from "react";
-
 import { clearRepository, setName } from "../Redux/Reducer/repositorySlice.ts";
 import { useNavigate } from "react-router-dom";
 import useFetchRepositories from "../Hook/useFetchRepositories.tsx";
-import Loading from "../Components/Button/Loading/Loading.tsx";
+import Loading from "../Components/Loading/Loading.tsx";
+import NavBar from "../Components/Navbar/Navbar.tsx";
+import FieldInformation from "../Components/FieldInformation/FieldInformation.tsx";
+import BackButton from "../Components/BackButton/BackButton.tsx";
+import ChangeOrderAndSortButton from "../Components/ChangeOrderAndSortButton/ChangeOrderAndSortButton.tsx";
+
 export default function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
@@ -49,9 +48,7 @@ export default function Home() {
   };
   if (!loading) {
     return (
-      <div className="bg-gray-800 min-h-screen w-[100%]">
-        <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
-        <hr />
+      <NavBar>
         <div className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col">
           <div className="sm:w-[60%] md:w-[18%] md:h-[30%] rounded-md bg-slate-950 p-5">
             <div className="flex justify-center">
@@ -70,40 +67,37 @@ export default function Home() {
             <br />
 
             <div className="flex justify-center flex-col">
-              <p className="text-gray-100 text-sm/4">
-                <span className="font-bold">Nome de usuário: </span>
-                {user.data.name}
-              </p>
+              <FieldInformation
+                field="Nome de usuário: "
+                information={user.data.name}
+              />
               <br />
-              <p className="text-gray-100 text-sm/4">
-                <span className="font-bold">E-mail: </span>
-                {user.data.email ? user.data.email : "E-mail não informado"}
-              </p>
+              <FieldInformation
+                field="E-mail: "
+                information={
+                  user.data.email ? user.data.email : "E-mail não informado"
+                }
+              />
               <br />
-              <p className="text-gray-100 text-sm/4">
-                <span className="font-bold">Bio: </span>
-                {user.data.bio ? user.data.bio : "bio não informada"}
-              </p>
+              <FieldInformation
+                field="Bio: "
+                information={
+                  user.data.bio ? user.data.bio : "bio não informada"
+                }
+              />
               <br />
-              <p className="text-gray-100 text-sm/4">
-                <span className="font-bold">Número de seguidores: </span>
-                {user.data.followers}
-              </p>
+              <FieldInformation
+                field="Número de seguidores: "
+                information={user.data.followers.toString()}
+              />
               <br />
-              <p className="text-gray-100 text-sm/4">
-                <span className="font-bold">Número de seguidos: </span>
-                {user.data.following}
-              </p>
+              <FieldInformation
+                field="Número de seguidos: "
+                information={user.data.following.toString()}
+              />
               <br />
               <div className="flex justify-end ">
-                <button
-                  className="ml-1 bg-red-700 hover:bg-red-950 px-3 py-1 rounded-md text-stone-100"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                >
-                  Voltar
-                </button>
+                <BackButton page="/"></BackButton>
               </div>
             </div>
           </div>
@@ -118,74 +112,44 @@ export default function Home() {
 
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       Nome do Repositório
-                      <button
-                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                        onClick={() => {
-                          dispatch(setSort("name"));
-                          dispatch(setOrder("asc"));
-                        }}
-                        disabled={!(page < totalPage)}
-                      >
-                        Asc
-                      </button>
-                      <button
-                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                        onClick={() => {
-                          dispatch(setSort("name"));
-                          dispatch(setOrder("desc"));
-                        }}
-                        disabled={!(page < totalPage)}
-                      >
-                        Desc
-                      </button>
+                      <ChangeOrderAndSortButton
+                        information="Asc"
+                        sort="name"
+                        order="asc"
+                      />
+                      <ChangeOrderAndSortButton
+                        information="Desc"
+                        sort="name"
+                        order="desc"
+                      />
                     </th>
 
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       Número de Estrelas
-                      <button
-                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                        onClick={() => {
-                          dispatch(setSort("stars"));
-                          dispatch(setOrder("asc"));
-                        }}
-                        disabled={!(page < totalPage)}
-                      >
-                        Asc
-                      </button>
-                      <button
-                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                        onClick={() => {
-                          dispatch(setSort("stars"));
-                          dispatch(setOrder("desc"));
-                        }}
-                        disabled={!(page < totalPage)}
-                      >
-                        Desc
-                      </button>
+                      <ChangeOrderAndSortButton
+                        information="Asc"
+                        sort="stars"
+                        order="asc"
+                      />
+                      <ChangeOrderAndSortButton
+                        information="Desc"
+                        sort="stars"
+                        order="desc"
+                      />
                     </th>
 
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       Data de Atualização
-                      <button
-                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                        onClick={() => {
-                          dispatch(setSort("updated"));
-                          dispatch(setOrder("asc"));
-                        }}
-                        disabled={!(page < totalPage)}
-                      >
-                        Asc
-                      </button>
-                      <button
-                        className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                        onClick={() => {
-                          dispatch(setSort("updated"));
-                          dispatch(setOrder("desc"));
-                        }}
-                        disabled={!(page < totalPage)}
-                      >
-                        Desc
-                      </button>
+                      <ChangeOrderAndSortButton
+                        information="Asc"
+                        sort="updated"
+                        order="asc"
+                      />
+                      <ChangeOrderAndSortButton
+                        information="Desc"
+                        sort="updated"
+                        order="desc"
+                      />
                     </th>
                   </tr>
                 </thead>
@@ -209,16 +173,19 @@ export default function Home() {
                           {item.stargazers_count}
                         </td>
                         <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
-                          {new Date(item.updated_at).getDay() +
-                            "/" +
-                            new Date(item.updated_at).getMonth() +
-                            "/" +
-                            new Date(item.updated_at).getFullYear()}
+                          {new Date(item.updated_at).getDate() < 10 ? "0" + (new Date(item.updated_at).getDate()).toString() : new Date(item.updated_at).getDate()} /{" "}
+                          {new Date(item.updated_at).getMonth() + 1 < 10
+                            ? "0" +
+                              (
+                                new Date(item.updated_at).getMonth() + 1
+                              ).toString()
+                            : new Date(item.updated_at).getMonth() + 1}{" "}
+                          / {new Date(item.updated_at).getFullYear()}
                         </td>
                       </tr>
                     ))
                   ) : (
-                    <h1>Nenhum repositório encontrado.</h1>
+                    <h1 className="text-gray-100">Nenhum repositório encontrado.</h1>
                   )}
                 </tbody>
               </table>
@@ -245,13 +212,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </NavBar>
     );
   } else if (!user.data.name) {
     navigate("/");
   } else {
-    return (
-       <Loading />
-    );
+    return <Loading />;
   }
 }

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { clearRepositoriesList } from "../Redux/Reducer/repositoriesSlice.ts";
 import { clearFetch } from "../Redux/Reducer/fetchSlice.ts";
 import { clearRepository } from "../Redux/Reducer/repositorySlice.ts";
-
+import NavBar from "../Components/Navbar/Navbar.tsx";
 export default function Home() {
   const username = useSelector((state: RootState) => state.user.data.name);
   const dispatch = useDispatch();
@@ -26,13 +26,11 @@ export default function Home() {
     dispatch(clearRepositoriesList());
     dispatch(clearFetch());
     dispatch(clearUser());
-    dispatch(clearRepository())
+    dispatch(clearRepository());
   }, [dispatch]);
 
   return (
-    <div className="bg-gray-800 min-h-screen w-[100%]">
-      <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
-      <hr />
+    <NavBar>
       <div className="flex flex-col justify-center items-center mt-[10%] w-full">
         <form onSubmit={handleSubmit} className="sm:w-[40%] md:w-[30%]">
           <label className="font-bold text-stone-100">
@@ -57,6 +55,6 @@ export default function Home() {
           />
         </form>
       </div>
-    </div>
+    </NavBar>
   );
 }

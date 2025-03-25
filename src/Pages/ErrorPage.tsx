@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { clearRepositoriesList } from "../Redux/Reducer/repositoriesSlice.ts";
 import { clearRepository } from "../Redux/Reducer/repositorySlice.ts";
 import { RootState } from "../Redux/store.ts";
-
+import NavBar from "../Components/Navbar/Navbar.tsx";
 export default function NotFoundPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,9 +20,7 @@ export default function NotFoundPage() {
   }, [dispatch]);
 
   return (
-    <div className="bg-gray-800 min-h-screen w-[100%]">
-      <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
-      <hr />
+    <NavBar>
       <div className="flex flex-col justify-center items-center mt-[10%] w-[100%] flex-wrap">
         <div className="sm:w-[40%] md:w-[30%]">
           <h1 className="font-bold text-stone-100 text-center">
@@ -30,7 +28,8 @@ export default function NotFoundPage() {
           </h1>
           <br />
           <h1 className="font-bold text-stone-100 text-center">
-            Se o erro persistir espere um momento e tente novamente, provavelmente são muitas requisições em pouco tempo.
+            Se o erro persistir espere um momento e tente novamente,
+            provavelmente são muitas requisições em pouco tempo.
           </h1>
           <br />
           <div className="flex justify-center">
@@ -43,6 +42,6 @@ export default function NotFoundPage() {
           </div>
         </div>
       </div>
-    </div>
+    </NavBar>
   );
 }
