@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1742938212447" clover="3.2.0">
-  <project timestamp="1742938212447" name="All files">
-    <metrics statements="143" coveredstatements="88" conditionals="69" coveredconditionals="16" methods="49" coveredmethods="37" elements="261" coveredelements="141" complexity="0" loc="143" ncloc="143" packages="8" files="15" classes="15"/>
+<coverage generated="1742939932229" clover="3.2.0">
+  <project timestamp="1742939932229" name="All files">
+    <metrics statements="145" coveredstatements="90" conditionals="75" coveredconditionals="16" methods="52" coveredmethods="37" elements="272" coveredelements="143" complexity="0" loc="145" ncloc="145" packages="8" files="15" classes="15"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="App.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\App.tsx">
+      <file name="App.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\App.tsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="11" count="0" type="stmt"/>
       </file>
-      <file name="main.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\main.tsx">
+      <file name="main.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\main.tsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.Components.BackButton">
       <metrics statements="3" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="BackButton.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Components\BackButton\BackButton.tsx">
+      <file name="BackButton.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Components\BackButton\BackButton.tsx">
         <metrics statements="3" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="4" count="4" type="stmt"/>
         <line num="6" count="4" type="stmt"/>
@@ -24,7 +24,7 @@
     </package>
     <package name="src.Components.ChangeOrderAndSortButton">
       <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="ChangeOrderAndSortButton.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Components\ChangeOrderAndSortButton\ChangeOrderAndSortButton.tsx">
+      <file name="ChangeOrderAndSortButton.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Components\ChangeOrderAndSortButton\ChangeOrderAndSortButton.tsx">
         <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="13" count="7" type="stmt"/>
         <line num="15" count="7" type="stmt"/>
@@ -34,14 +34,14 @@
     </package>
     <package name="src.Components.FieldInformation">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="FieldInformation.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Components\FieldInformation\FieldInformation.tsx">
+      <file name="FieldInformation.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Components\FieldInformation\FieldInformation.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="10" type="stmt"/>
       </file>
     </package>
     <package name="src.Components.Loading">
       <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="Loading.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Components\Loading\Loading.tsx">
+      <file name="Loading.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Components\Loading\Loading.tsx">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
@@ -50,15 +50,15 @@
     </package>
     <package name="src.Components.Navbar">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Navbar.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Components\Navbar\Navbar.tsx">
+      <file name="Navbar.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Components\Navbar\Navbar.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="11" type="stmt"/>
       </file>
     </package>
     <package name="src.Hook">
-      <metrics statements="63" coveredstatements="28" conditionals="34" coveredconditionals="1" methods="13" coveredmethods="12"/>
-      <file name="useFetchRepositories.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Hook\useFetchRepositories.tsx">
-        <metrics statements="19" coveredstatements="6" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="3"/>
+      <metrics statements="66" coveredstatements="31" conditionals="40" coveredconditionals="1" methods="16" coveredmethods="12"/>
+      <file name="useFetchRepositories.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Hook\useFetchRepositories.tsx">
+        <metrics statements="20" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="5" coveredmethods="3"/>
         <line num="13" count="3" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
@@ -78,9 +78,10 @@
         <line num="57" count="0" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
+        <line num="70" count="1" type="cond" truecount="0" falsecount="2"/>
       </file>
-      <file name="useFetchRepository.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Hook\useFetchRepository.tsx">
-        <metrics statements="21" coveredstatements="11" conditionals="10" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="useFetchRepository.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Hook\useFetchRepository.tsx">
+        <metrics statements="22" coveredstatements="12" conditionals="12" coveredconditionals="0" methods="6" coveredmethods="5"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="9" type="stmt"/>
@@ -102,9 +103,10 @@
         <line num="44" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
+        <line num="57" count="1" type="cond" truecount="0" falsecount="2"/>
       </file>
-      <file name="useFetchUser.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Hook\useFetchUser.tsx">
-        <metrics statements="23" coveredstatements="11" conditionals="16" coveredconditionals="1" methods="4" coveredmethods="4"/>
+      <file name="useFetchUser.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Hook\useFetchUser.tsx">
+        <metrics statements="24" coveredstatements="12" conditionals="18" coveredconditionals="1" methods="5" coveredmethods="4"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
         <line num="14" count="10" type="stmt"/>
@@ -128,11 +130,12 @@
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
+        <line num="66" count="1" type="cond" truecount="0" falsecount="2"/>
       </file>
     </package>
     <package name="src.Pages">
-      <metrics statements="66" coveredstatements="52" conditionals="34" coveredconditionals="15" methods="27" coveredmethods="20"/>
-      <file name="ErrorPage.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Pages\ErrorPage.tsx">
+      <metrics statements="65" coveredstatements="51" conditionals="34" coveredconditionals="15" methods="27" coveredmethods="20"/>
+      <file name="ErrorPage.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Pages\ErrorPage.tsx">
         <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
         <line num="11" count="5" type="stmt"/>
         <line num="12" count="5" type="stmt"/>
@@ -144,7 +147,7 @@
         <line num="21" count="5" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
       </file>
-      <file name="Home.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Pages\Home.tsx">
+      <file name="Home.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Pages\Home.tsx">
         <metrics statements="14" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="3"/>
         <line num="14" count="5" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
@@ -161,7 +164,7 @@
         <line num="32" count="1" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
       </file>
-      <file name="NotFoundPage.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Pages\NotFoundPage.tsx">
+      <file name="NotFoundPage.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Pages\NotFoundPage.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
@@ -171,19 +174,18 @@
         <line num="16" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
       </file>
-      <file name="Repository.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Pages\Repository.tsx">
-        <metrics statements="9" coveredstatements="8" conditionals="10" coveredconditionals="6" methods="3" coveredmethods="3"/>
-        <line num="13" count="3" type="stmt"/>
+      <file name="Repository.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Pages\Repository.tsx">
+        <metrics statements="8" coveredstatements="7" conditionals="10" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="9" type="stmt"/>
         <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="71" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="72" count="2" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
+        <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="69" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
       </file>
-      <file name="User.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Pages\User.tsx">
+      <file name="User.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\teste e documentacao\desafio\src\Pages\User.tsx">
         <metrics statements="27" coveredstatements="19" conditionals="20" coveredconditionals="7" methods="13" coveredmethods="9"/>
         <line num="17" count="3" type="stmt"/>
         <line num="18" count="10" type="stmt"/>

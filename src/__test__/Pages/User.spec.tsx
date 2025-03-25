@@ -11,7 +11,7 @@ describe("Test User", () => {
         <BrowserRouter><User /></BrowserRouter>
       </Provider>
     );
-    const idElement = await screen.findByTestId("User");
+    const idElement = await screen.findByText("GitHub Desafio");
     expect(idElement).toBeInTheDocument();
   }); 
 });

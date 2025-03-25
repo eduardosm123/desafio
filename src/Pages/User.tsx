@@ -215,6 +215,8 @@ export default function Home() {
       <ErrorPage />
     </div>
   } else {
-    return <div data-testid="User"> <Loading />;</div>
+    return (
+      <NavBar><Loading /></NavBar>
+    )
   }
 }

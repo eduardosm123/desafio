@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useFetchRepository } from "../Hook/useFetchRepository";
 import { RootState } from "../Redux/store";
-import { useNavigate } from "react-router-dom";
 import NavBar from "../Components/Navbar/Navbar";
 import FieldInformation from "../Components/FieldInformation/FieldInformation";
 import BackButton from "../Components/BackButton/BackButton";
@@ -13,7 +12,6 @@ export default function Repository() {
   useFetchRepository();
   const loading = useSelector((state: RootState) => state.fetch.loading);
   const repository = useSelector((state: RootState) => state.repository.data);
-  const navigate = useNavigate();
   if (!loading) {
     return (
       <NavBar>
