@@ -10,7 +10,7 @@ export default function Repository() {
   const navigate = useNavigate()
   if (!loading) {
     return (
-      <div className="bg-gray-700 min-h-screen w-[100%]">
+      <div className="bg-gray-800 min-h-screen w-[100%]">
         <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
         <hr />
         <div className="flex w-[100%] h-[100%] justify-center items-center mt-[5%] flex-col " >

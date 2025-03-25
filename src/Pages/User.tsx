@@ -3,20 +3,16 @@ import { RootState } from "../Redux/store.ts";
 import { useFetchUser } from "../Hook/useFetchUser.tsx";
 
 import {
-  setDataRepositories,
   setOrder,
   setPage,
   setSort,
-  setTotalPage,
 } from "../Redux/Reducer/repositoriesSlice.ts";
 import { useEffect } from "react";
-import { instance } from "../Api/github.ts";
-import { setError, setLoading } from "../Redux/Reducer/fetchSlice.ts";
 
-import { RepositoryItemList } from "../Types/Repository.ts";
 import { clearRepository, setName } from "../Redux/Reducer/repositorySlice.ts";
 import { useNavigate } from "react-router-dom";
-
+import useFetchRepositories from "../Hook/useFetchRepositories.tsx";
+import Loading from "../Components/Button/Loading/Loading.tsx";
 export default function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
@@ -38,57 +34,7 @@ export default function Home() {
     dispatch(clearRepository());
   }, [dispatch]);
 
-  useEffect(() => {
-    async function get() {
-      dispatch(setLoading(true));
-      dispatch(setError(""));
-      try {
-        const response = await instance.get(
-          `search/repositories?q=user:${user.data.name}&page=${page}&sort=${sort}&per_page=15&order=${order}`
-        );
-
-        if (response.status === 200) {
-          if (
-            response &&
-            response.data &&
-            response.data.items &&
-            response.data.items.length > 0
-          ) {
-            const newList = response.data.items.map(
-              ({
-                id,
-                name,
-                updated_at,
-                stargazers_count,
-              }: RepositoryItemList) => ({
-                id,
-                name,
-                updated_at,
-                stargazers_count,
-              })
-            );
-            // console.log(response.data);
-            // console.log(newList);
-            dispatch(setDataRepositories(newList));
-            dispatch(setTotalPage(Math.ceil(response.data.total_count / 15)));
-          } else {
-            console.log(
-              "Request was not successful, status code: ",
-              response.status
-            );
-            dispatch(setError("Erro ao buscar repositorios"));
-            navigate("/");
-          }
-        }
-        dispatch(setLoading(false));
-      } catch (error) {
-        console.log(error);
-        dispatch(setError("Erro ao buscar repositorios"));
-        navigate("/error");
-      }
-    }
-    get();
-  }, [dispatch, user.data.name, page, sort, order, navigate]);
+  useFetchRepositories(dispatch, user.data.name, page, sort, order, navigate);
 
   const handlePreviousPage = () => {
     if (page > 1) {
@@ -103,7 +49,7 @@ export default function Home() {
   };
   if (!loading) {
     return (
-      <div className="bg-gray-700 min-h-screen w-[100%]">
+      <div className="bg-gray-800 min-h-screen w-[100%]">
         <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
         <hr />
         <div className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col">
@@ -305,30 +251,7 @@ export default function Home() {
     navigate("/");
   } else {
     return (
-      <div>
-        <div className="bg-gray-800 min-h-screen w-[100%]">
-          <h1 className="text-center text-stone-100 font-bold">
-            GitHub Desafio
-          </h1>
-          <hr />
-          <div className="flex flex-col justify-center items-center mt-[10%] w-[100%] flex-wrap">
-            <div className="sm:w-[40%] md:w-[30%]">
-              <h1 className="font-bold text-stone-100 text-center">
-                Carregando... Demorando muito ? por favor tente novamente
-              </h1>
-              <br />
-              <div className="flex justify-center">
-                <button
-                  onClick={() => navigate("/")}
-                  className="bg-red-400 hover:bg-red-600 px-3 cursor-pointer py-1 rounded-md text-stone-100"
-                >
-                  Voltar ao inicio
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+       <Loading />
     );
   }
 }
