@@ -25,7 +25,7 @@ Tem o objetivo de instalar todos os pacotes para rodar a aplicação localmente.
 
 Tem por objetivo executar localmente a aplicação.
 
- ```bash
+```bash
 
   npm run dev
 
@@ -34,7 +34,7 @@ Tem por objetivo executar localmente a aplicação.
 Tem por objetivo executar todos os testes desenvolvidos.
 
 
- ```bash
+```bash
 
   npm run test
 
@@ -44,7 +44,7 @@ Tem por objetivo executar todos os testes desenvolvidos.
 Tem por objetivo executar todos os testes desenvolvidos, mostrando detalhes de cobertura de arquivos.
 
 
- ```bash
+```bash
 
   npm run test:cov
 
