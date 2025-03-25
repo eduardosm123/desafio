@@ -11,21 +11,17 @@ import NavBar from "../Components/Navbar/Navbar.tsx";
 import FieldInformation from "../Components/FieldInformation/FieldInformation.tsx";
 import BackButton from "../Components/BackButton/BackButton.tsx";
 import ChangeOrderAndSortButton from "../Components/ChangeOrderAndSortButton/ChangeOrderAndSortButton.tsx";
+import ErrorPage from "./ErrorPage.tsx";
 
 export default function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
-
-  const repositories = useSelector(
-    (state: RootState) => state.repositories.data
-  );
+  const repositories = useSelector((state: RootState) => state.repositories.data);
   const sort = useSelector((state: RootState) => state.repositories.sort);
   const order = useSelector((state: RootState) => state.repositories.order);
   const loading = useSelector((state: RootState) => state.fetch.loading);
   const page = useSelector((state: RootState) => state.repositories.pages);
-  const totalPage = useSelector(
-    (state: RootState) => state.repositories.totalPages
-  );
+  const totalPage = useSelector((state: RootState) => state.repositories.totalPages);
   const navigate = useNavigate();
   useFetchUser(user.data.name);
 
@@ -49,7 +45,7 @@ export default function Home() {
   if (!loading) {
     return (
       <NavBar>
-        <div className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col">
+        <div className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col" data-testid="User">
           <div className="sm:w-[60%] md:w-[18%] md:h-[30%] rounded-md bg-slate-950 p-5">
             <div className="flex justify-center">
               {user.data.avatar_url ? (
@@ -215,8 +211,10 @@ export default function Home() {
       </NavBar>
     );
   } else if (!user.data.name) {
-    navigate("/");
+    return <div data-testid="User">
+      <ErrorPage />
+    </div>
   } else {
-    return <Loading />;
+    return <div data-testid="User"> <Loading />;</div>
   }
 }

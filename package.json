@@ -19,7 +19,8 @@
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.4.0",
-    "tailwindcss": "^4.0.15"
+    "tailwindcss": "^4.0.15",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
@@ -52,7 +53,7 @@
       "<rootDir>/setup-tests.js"
     ],
     "collectCoverageFrom": [
-      "<rootDir>/src/**/*.{js,ts,jsx,tsx}"
+      "<rootDir>/src/**/*.tsx"
     ]
   }
 }
