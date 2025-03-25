@@ -1,6 +1,10 @@
-# Descrição da aplicação
+ # Descrição da aplicação
 
 Uma aplicação web em React.js que consme a API pública do GitHub e permite buscar por usuários, visualizar seus dados e seus repositórios.
+
+# Aviso
+
+A realização de muitas operações (como consulta, ordenação, ver detalhes de repositorios) em um curto periodo de tempo pode impedir a execução das mesmas por um curto periodo de tempo devido a limitações da API do GitHub.
 
 ## Guia de Instalação
 
@@ -21,12 +25,12 @@ Tem por objetivo executar localmente a aplicação
 Tem por objetivo executar todos os testes desenvolvidos.
 
  ```bash
-  npm run test:cov
+  npm run test
 ```
 
 Tem por objetivo executar todos os testes desenvolvidos mostrando detalhes de cobertura de arquivos.
 
  ```bash
-  npm run test
+  npm run test:cov
 ```
 
