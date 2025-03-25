@@ -1,15 +1,9 @@
-export interface IRepositoryList {
-    data?: RepositoryItemList[] 
-    pages: number,
-    totalPages: number,
-    sort: string,
-    order: string
-}
+import { RepositoryItemList } from "../Types/Repository";
 
-export type RepositoryItemList = {
-    id: number,
-    name: string,
-    updated_at: string,
-    stargazers_count: number
+export interface IRepositoryList {
+  data?: RepositoryItemList[];
+  pages: number;
+  totalPages: number;
+  sort: string;
+  order: string;
 }
-  

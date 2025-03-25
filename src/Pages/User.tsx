@@ -13,7 +13,10 @@ import { useEffect } from "react";
 import { instance } from "../Api/github.ts";
 import { setError, setLoading } from "../Redux/Reducer/fetchSlice.ts";
 
-import { RepositoryItemList } from "../Interfaces/Repositories.ts";
+import { RepositoryItemList } from "../Types/Repository.ts";
+import { clearRepository, setName } from "../Redux/Reducer/repositorySlice.ts";
+import { useNavigate } from "react-router-dom";
+ 
 export default function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
@@ -27,12 +30,17 @@ export default function Home() {
   const totalPage = useSelector(
     (state: RootState) => state.repositories.totalPages
   );
-
+  const navigate = useNavigate();
   useFetchUser(user.data.name);
 
+  useEffect(()=> {
+    dispatch(clearRepository())
+  }, [dispatch])
+  
   useEffect(() => {
     async function get() {
       dispatch(setLoading(true));
+      dispatch(setError(""));
       try {
         const response = await instance.get(
           `search/repositories?q=user:${user.data.name}&page=${page}&sort=${sort}&per_page=15&order=${order}`
@@ -48,17 +56,17 @@ export default function Home() {
             const newList = response.data.items.map(
               ({
                 id,
-                name, 
+                name,
                 updated_at,
                 stargazers_count,
               }: RepositoryItemList) => ({
                 id,
-                name, 
+                name,
                 updated_at,
                 stargazers_count,
               })
             );
-            console.log(response.data);
+            // console.log(response.data);
             // console.log(newList);
             dispatch(setDataRepositories(newList));
             dispatch(setTotalPage(Math.ceil(response.data.total_count / 15)));
@@ -95,7 +103,7 @@ export default function Home() {
         <h1 className="text-center text-stone-100 font-bold">GitHub Desafio</h1>
         <hr />
         <div className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col">
-          <div className="sm:w-[60%] md:w-[18%] md:h-[30%] rounded-md bg-stone-500 p-5">
+          <div className="sm:w-[60%] md:w-[18%] md:h-[30%] rounded-md bg-slate-950 p-5">
             <div className="flex justify-center">
               {user.data.avatar_url ? (
                 <img
@@ -136,6 +144,17 @@ export default function Home() {
                 <span className="font-bold">Número de seguidos: </span>
                 {user.data.following}
               </p>
+              <br />
+              <div className="flex justify-end ">
+                <button
+                  className="ml-1 bg-red-700 hover:bg-red-950 px-3 py-1 rounded-md text-stone-100"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  Voltar
+                </button>
+              </div>
             </div>
           </div>
           <div className="w-[100%]">
@@ -145,7 +164,6 @@ export default function Home() {
                   <tr>
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       ID
-                       
                     </th>
 
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
@@ -195,7 +213,7 @@ export default function Home() {
                         Desc
                       </button>
                     </th>
-                  
+
                     <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
                       Data de Atualização
                       <button
@@ -224,7 +242,13 @@ export default function Home() {
                 <tbody className="bg-gray-800">
                   {repositories ? (
                     repositories.map((item, key) => (
-                      <tr key={key}>
+                      <tr
+                        key={key}
+                        onClick={() => {
+                          dispatch(setName(item.name));
+                          navigate("/repository");
+                        }}
+                      >
                         <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
                           {item.id}
                         </td>
@@ -274,6 +298,10 @@ export default function Home() {
       </div>
     );
   } else {
-    return <h1>Carregamento</h1>;
+    return (
+      <div className="bg-gray-700 min-h-screen w-[100%]">
+        <h1>Carregando</h1>
+      </div>
+    );
   }
 }

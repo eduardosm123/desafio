@@ -15,12 +15,13 @@ export const useFetchUser = (username: string) => {
   useEffect(() => {
     async function get() {
       dispatch(setLoading(true));
+      dispatch(setError(""))
       if (load) return;
       try {
         const response = await instance.get(`users/${username}`);
 
         if (response.status === 200) {
-          console.log("Request was Sucessful", response.data);
+          // console.log("Request was Sucessful", response.data);
           const newUser: IUser = {
             data: {
               name: response.data.login ? response.data.login : "",

@@ -25,8 +25,19 @@ export const userSlice = createSlice({
     },
     setLoad: (state, {payload}) => {
       state.load = payload
+    },
+    clearUser: (state) => {
+      state.data =  {
+        name: "",
+        avatar_url: "",
+        bio: "",
+        followers: 0,
+        following: 0,
+        email: "",
+      }
+      state.load = false
     }
   },
 });
 
-export const { setUser, setUsername, setLoad } = userSlice.actions;
+export const { setUser, setUsername, setLoad, clearUser } = userSlice.actions;

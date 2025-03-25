@@ -14,8 +14,12 @@ export const fetchSlice = createSlice({
     },
     setError: (state, { payload }) => {
       state.error = payload;
+    },
+    clearFetch: (state) => {
+      state.error = ""
+      state.loading = false
     }
   },
 });
 
-export const { setError, setLoading } = fetchSlice.actions;
+export const { setError, setLoading, clearFetch } = fetchSlice.actions;

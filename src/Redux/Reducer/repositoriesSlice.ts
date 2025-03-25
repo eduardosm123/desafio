@@ -28,8 +28,15 @@ export const repositoriesSlice = createSlice({
     setOrder: (state, { payload }) => {
       state.order = payload;
     },
+    clearRepositoriesList: (state) => {
+      state.data =  []
+      state.pages = 1
+      state.totalPages =  1
+      state.sort = "stars"
+      state.order =  "desc"
+    }
   },
 });
 
-export const { setDataRepositories, setPage, setTotalPage, setSort, setOrder } =
+export const { setDataRepositories, setPage, setTotalPage, setSort, setOrder, clearRepositoriesList } =
   repositoriesSlice.actions;
