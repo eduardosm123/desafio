@@ -27,7 +27,6 @@ export default function NotFoundPage() {
           <div className="flex justify-center">
           <BackButton page="/"/>
           </div>
-          
         </div>
       </div>
       </NavBar>

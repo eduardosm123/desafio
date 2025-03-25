@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "../Redux/Reducer/userSlice.ts";
-import { useNavigate } from "react-router-dom";
 import { clearRepositoriesList } from "../Redux/Reducer/repositoriesSlice.ts";
 import { clearRepository } from "../Redux/Reducer/repositorySlice.ts";
 import { RootState } from "../Redux/store.ts";
 import NavBar from "../Components/Navbar/Navbar.tsx";
+import BackButton from "../Components/BackButton/BackButton.tsx";
 
 export default function ErrorPage() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const error = useSelector((state: RootState) => state.fetch.error);
 
   useEffect(() => {
@@ -35,12 +34,7 @@ export default function ErrorPage() {
           </h1>
           <br />
           <div className="flex justify-center">
-            <button
-              onClick={() => navigate("/")}
-              className="bg-red-400 hover:bg-red-600 px-3 cursor-pointer py-1 rounded-md text-stone-100"
-            >
-              Voltar ao inicio
-            </button>
+            <BackButton page="/"/>
           </div>
         </div>
       </div>
