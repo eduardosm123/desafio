@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1742937064404" clover="3.2.0">
-  <project timestamp="1742937064405" name="All files">
+<coverage generated="1742938212447" clover="3.2.0">
+  <project timestamp="1742938212447" name="All files">
     <metrics statements="143" coveredstatements="88" conditionals="69" coveredconditionals="16" methods="49" coveredmethods="37" elements="261" coveredelements="141" complexity="0" loc="143" ncloc="143" packages="8" files="15" classes="15"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -173,15 +173,15 @@
       </file>
       <file name="Repository.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Pages\Repository.tsx">
         <metrics statements="9" coveredstatements="8" conditionals="10" coveredconditionals="6" methods="3" coveredmethods="3"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="69" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="70" count="2" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="71" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
       </file>
       <file name="User.tsx" path="C:\Users\magal\Desktop\PROJETOS\DESAFIO\desafio\src\Pages\User.tsx">
         <metrics statements="27" coveredstatements="19" conditionals="20" coveredconditionals="7" methods="13" coveredmethods="9"/>
