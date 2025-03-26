@@ -55,7 +55,7 @@ export default function Home() {
                   className="sm:w-[70%] md:w-[50%]  rounded-[50%] "
                 />
               ) : (
-                <p className="text-gray-100 text-sm/4 font-bold">
+                <p className="text-gray-100 text-xs/4 font-bold">
                   Usuário sem Imagem
                 </p>
               )}
@@ -99,14 +99,14 @@ export default function Home() {
           </div>
           <div className="w-[100%]">
             <div className="w-[100%] sm:overflow-x-auto md:flex md:justify-center">
-              <table className="sm:w-[100vw] md:w-[90vw] border-collapse text-sm mt-10 mb-3 bg-gray-950 rounded-lg ">
+              <table className="sm:w-[100vw] md:w-[90vw] border-collapse sm:text-xs mt-10 mb-3 bg-gray-950 rounded-lg ">
                 <thead>
                   <tr>
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       ID
                     </th>
 
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       Nome do Repositório
                       <ChangeOrderAndSortButton
                         information="Asc"
@@ -120,7 +120,7 @@ export default function Home() {
                       />
                     </th>
 
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="border-b p-4 pt-2 pb-3 pl-8  text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       Número de Estrelas
                       <ChangeOrderAndSortButton
                         information="Asc"
@@ -134,7 +134,7 @@ export default function Home() {
                       />
                     </th>
 
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       Data de Atualização
                       <ChangeOrderAndSortButton
                         information="Asc"
@@ -159,16 +159,16 @@ export default function Home() {
                           navigate("/repository");
                         }}
                       >
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {item.id}
                         </td>
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {item.name}
                         </td>
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {item.stargazers_count}
                         </td>
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {new Date(item.updated_at).getDate() < 10 ? "0" + (new Date(item.updated_at).getDate()).toString() : new Date(item.updated_at).getDate()} /{" "}
                           {new Date(item.updated_at).getMonth() + 1 < 10
                             ? "0" +
