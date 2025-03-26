@@ -186,7 +186,7 @@ export default function Home() {
     </div>
   } else {
     return (
-      <NavBar><Loading /></NavBar>
+      <Loading />
     )
   }
 }
