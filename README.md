@@ -21,7 +21,7 @@ npm install
 ## Guia de Execução
 
 
-Tem por objetivo executar localmente a aplicação.
+Tem por objetivo executar localmente a aplicação. Depois de executar o comando, acesse a URL indicada no terminal.
 
 ```bash
 npm run dev
