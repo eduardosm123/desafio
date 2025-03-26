@@ -2,7 +2,7 @@ import {   render, screen } from "@testing-library/react";
 import ChangeOrderAndSortButton from "../../Components/ChangeOrderAndSortButton/ChangeOrderAndSortButton";
 import { Provider } from "react-redux";
 import store from "../../Redux/store.ts";
-
+import '@testing-library/jest-dom';
 describe("Test ChangeOrderAndSortButton", () => {
   it("test render", async () => {
     render(
