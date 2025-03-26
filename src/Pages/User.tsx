@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/store.ts";
 import { useFetchUser } from "../Hook/useFetchUser.tsx";
-import { setPage } from "../Redux/Reducer/repositoriesSlice.ts";
 import { useEffect } from "react";
 import { clearRepository, setName } from "../Redux/Reducer/repositorySlice.ts";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +11,7 @@ import FieldInformation from "../Components/FieldInformation/FieldInformation.ts
 import BackButton from "../Components/BackButton/BackButton.tsx";
 import ChangeOrderAndSortButton from "../Components/ChangeOrderAndSortButton/ChangeOrderAndSortButton.tsx";
 import ErrorPage from "./ErrorPage.tsx";
+import ChangePage from "../Components/ChangePage/ChangePage.tsx";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -21,7 +21,6 @@ export default function Home() {
   const order = useSelector((state: RootState) => state.repositories.order);
   const loading = useSelector((state: RootState) => state.fetch.loading);
   const page = useSelector((state: RootState) => state.repositories.pages);
-  const totalPage = useSelector((state: RootState) => state.repositories.totalPages);
   const navigate = useNavigate();
   useFetchUser(user.data.name);
 
@@ -31,17 +30,6 @@ export default function Home() {
 
   useFetchRepositories(dispatch, user.data.name, page, sort, order, navigate);
 
-  const handlePreviousPage = () => {
-    if (page > 1) {
-      dispatch(setPage(page - 1));
-    }
-  };
-
-  const handleNextPage = () => {
-    if (page < totalPage) {
-      dispatch(setPage(page + 1));
-    }
-  };
   if (!loading) {
     return (
       <NavBar>
@@ -186,26 +174,8 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-
-            <div className="flex  justify-around mt-3 mb-3 w-[100%]">
-              <button
-                className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                onClick={handlePreviousPage}
-                disabled={!(page > 1)}
-              >
-                Anterior
-              </button>
-              <span>
-                Página {page} de {totalPage}
-              </span>
-              <button
-                className="ml-1 bg-gray-900 hover:bg-gray-950 px-3 py-1 rounded-md text-stone-100"
-                onClick={handleNextPage}
-                disabled={!(page < totalPage)}
-              >
-                Próximo
-              </button>
-            </div>
+                  <ChangePage />
+            
           </div>
         </div>
       </NavBar>
