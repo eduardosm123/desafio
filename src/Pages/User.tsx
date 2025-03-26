@@ -90,11 +90,11 @@ export default function Home() {
               <table className="sm:w-[100vw] md:w-[90vw] border-collapse sm:text-xs mt-10 mb-3 bg-gray-950 rounded-lg ">
                 <thead>
                   <tr>
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="sm:min-w-[15vw] md:min-w-[15vw] border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       ID
                     </th>
 
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="sm:min-w-[100vw] md:min-w-[15vw] border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       Nome do Repositório
                       <ChangeOrderAndSortButton
                         information="Asc"
@@ -108,7 +108,7 @@ export default function Home() {
                       />
                     </th>
 
-                    <th className="border-b p-4 pt-2 pb-3 pl-8  text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="sm:min-w-[80vw] md:min-w-[15vw] border-b p-4 pt-2 pb-3 pl-8  text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       Número de Estrelas
                       <ChangeOrderAndSortButton
                         information="Asc"
@@ -122,7 +122,7 @@ export default function Home() {
                       />
                     </th>
 
-                    <th className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
+                    <th className="sm:min-w-[120vw] md:min-w-[15vw] border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] font-medium text-gray-400 border-gray-600 text-gray-200">
                       Data de Atualização
                       <ChangeOrderAndSortButton
                         information="Asc"
