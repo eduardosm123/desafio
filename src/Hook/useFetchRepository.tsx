@@ -18,7 +18,7 @@ export const useFetchRepository = () => {
       dispatch(setError(""));
       try {
         const response = await instance.get(`repos/${owner}/${name}`);
-        console.log(response.data);
+         
         if (response.status === 200) {
           const repository = {
             data: {
