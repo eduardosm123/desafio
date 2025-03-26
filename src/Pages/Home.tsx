@@ -17,7 +17,7 @@ export default function Home() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (username) {
+    if (username.trim()) {
       navigate("/user");
     }
   };
@@ -45,6 +45,7 @@ export default function Home() {
             value={username || ""}
             className="placeholder-gray-100 text-gray-100 border-1 border-white w-[100%]"
             onChange={(e) => dispatch(setUsername(e.target.value))}
+            required
           />
           <br />
           <br />

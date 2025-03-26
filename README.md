@@ -4,7 +4,7 @@ Uma aplicação web em React.js que consome a API pública do GitHub e permite b
 
 # Aviso
 
-A realização de muitas operações (como consulta, ordenação, ver detalhes de repositórios) em um curto período de tempo pode impedir a execução das mesmas por um curto período de tempo devido a limitações da API do GitHub.
+A realização de muitas operações (como consulta, ordenação, ver detalhes de repositórios) em um curto período de tempo pode impedir a execução das mesmas por um período de tempo devido a limitações da API do GitHub.
 
 
 ## Guia de Instalação
