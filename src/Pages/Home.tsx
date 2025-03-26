@@ -44,7 +44,7 @@ export default function Home() {
             type="text"
             id="username"
             name="username"
-            placeholder="Digite o nome do usuario"
+            placeholder="Digite o nome do usuário"
             value={username || ""}
             className="placeholder-gray-100 text-gray-100 border-1 border-white w-[100%]"
             onChange={(e) => dispatch(setUsername(e.target.value))}
