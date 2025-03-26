@@ -147,16 +147,16 @@ export default function Home() {
                           navigate("/repository");
                         }}
                       >
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left break-words  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {item.id}
                         </td>
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left break-words md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {item.name}
                         </td>
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left break-words md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {item.stargazers_count}
                         </td>
-                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left  md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
+                        <td className="border-b p-4 pt-2 pb-3 pl-8 text-left break-words md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
                           {new Date(item.updated_at).getDate() < 10 ? "0" + (new Date(item.updated_at).getDate()).toString() : new Date(item.updated_at).getDate()} /{" "}
                           {new Date(item.updated_at).getMonth() + 1 < 10
                             ? "0" +
