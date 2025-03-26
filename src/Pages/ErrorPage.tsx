@@ -34,7 +34,7 @@ export default function ErrorPage() {
           </h1>
           <br />
           <div className="flex justify-center">
-            <BackButton page="/"/>
+            <BackButton page="/" />
           </div>
         </div>
       </div>

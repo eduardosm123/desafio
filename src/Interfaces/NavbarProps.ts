@@ -1,3 +1,3 @@
 export interface NavbarProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }

@@ -10,7 +10,7 @@ const initialState: IUser = {
     following: 0,
     email: "",
   },
-  load: false
+  load: false,
 };
 
 export const userSlice = createSlice({
@@ -23,20 +23,20 @@ export const userSlice = createSlice({
     setUsername: (state, { payload }) => {
       state.data.name = payload;
     },
-    setLoad: (state, {payload}) => {
-      state.load = payload
+    setLoad: (state, { payload }) => {
+      state.load = payload;
     },
     clearUser: (state) => {
-      state.data =  {
+      state.data = {
         name: "",
         avatar_url: "",
         bio: "",
         followers: 0,
         following: 0,
         email: "",
-      }
-      state.load = false
-    }
+      };
+      state.load = false;
+    },
   },
 });
 

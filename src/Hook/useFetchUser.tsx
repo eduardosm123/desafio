@@ -12,11 +12,11 @@ import { useNavigate } from "react-router-dom";
 export const useFetchUser = (username: string) => {
   const dispatch = useDispatch();
   const load = useSelector((state: RootState) => state.user.load);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     async function get() {
       dispatch(setLoading(true));
-      dispatch(setError(""))
+      dispatch(setError(""));
       if (load) return;
       try {
         const response = await instance.get(`users/${username}`);
@@ -44,14 +44,13 @@ export const useFetchUser = (username: string) => {
           );
           console.log(response);
           dispatch(setError("Erro ao buscar usuário"));
-          navigate("/error")
-          
+          navigate("/error");
         }
         dispatch(setLoading(false));
       } catch (error) {
-        console.log(error)
+        console.log(error);
         dispatch(setError("Erro ao buscar usuário"));
-        navigate("/error")
+        navigate("/error");
       }
     }
     get();

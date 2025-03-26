@@ -32,4 +32,5 @@ export const repositorySlice = createSlice({
   },
 });
 
-export const { setDataRepository, setName, clearRepository } = repositorySlice.actions;
+export const { setDataRepository, setName, clearRepository } =
+  repositorySlice.actions;

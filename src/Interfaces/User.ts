@@ -6,6 +6,6 @@ export interface IUser {
     avatar_url: string;
     bio: string;
     email?: string;
-  },
-  load?: boolean
+  };
+  load?: boolean;
 }

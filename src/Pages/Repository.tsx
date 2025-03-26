@@ -5,7 +5,7 @@ import NavBar from "../Components/Navbar/Navbar";
 import FieldInformation from "../Components/FieldInformation/FieldInformation";
 import BackButton from "../Components/BackButton/BackButton";
 import ErrorPage from "./ErrorPage";
- 
+
 export default function Repository() {
   useFetchRepository();
   const loading = useSelector((state: RootState) => state.fetch.loading);
@@ -13,7 +13,10 @@ export default function Repository() {
   if (!loading) {
     return (
       <NavBar>
-        <div className="flex w-[100%] h-[100%] justify-center items-center mt-[5%] flex-col " data-testid="Repository">
+        <div
+          className="flex w-[100%] h-[100%] justify-center items-center mt-[5%] flex-col "
+          data-testid="Repository"
+        >
           <div className="sm:w-[60%] md:w-[18%] md:h-[30%] rounded-md bg-slate-950 p-5">
             <FieldInformation
               field="Nome do Repositório: "
@@ -65,11 +68,11 @@ export default function Repository() {
       </NavBar>
     );
   } else if (!repository.name) {
-   return (
-   <div data-testid="Repository">
-     <ErrorPage />
-   </div>
-   )
+    return (
+      <div data-testid="Repository">
+        <ErrorPage />
+      </div>
+    );
   } else {
     return (
       <NavBar>

@@ -16,7 +16,9 @@ import ChangePage from "../Components/ChangePage/ChangePage.tsx";
 export default function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
-  const repositories = useSelector((state: RootState) => state.repositories.data);
+  const repositories = useSelector(
+    (state: RootState) => state.repositories.data
+  );
   const sort = useSelector((state: RootState) => state.repositories.sort);
   const order = useSelector((state: RootState) => state.repositories.order);
   const loading = useSelector((state: RootState) => state.fetch.loading);
@@ -33,7 +35,10 @@ export default function Home() {
   if (!loading) {
     return (
       <NavBar>
-        <div className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col" data-testid="User">
+        <div
+          className="flex w-[100%] h-[100%] justify-center items-center mt-8 flex-col"
+          data-testid="User"
+        >
           <div className="sm:w-[60%] md:w-[18%] md:h-[30%] rounded-md bg-slate-950 p-5">
             <div className="flex justify-center">
               {user.data.avatar_url ? (
@@ -157,7 +162,11 @@ export default function Home() {
                           {item.stargazers_count}
                         </td>
                         <td className="border-b p-4 pt-2 pb-3 pl-8 text-left break-words md:text-sm sm:text-[0.7rem] text-gray-500 border-gray-700 text-gray-400">
-                          {new Date(item.updated_at).getDate() < 10 ? "0" + (new Date(item.updated_at).getDate()).toString() : new Date(item.updated_at).getDate()} /{" "}
+                          {new Date(item.updated_at).getDate() < 10
+                            ? "0" +
+                              new Date(item.updated_at).getDate().toString()
+                            : new Date(item.updated_at).getDate()}{" "}
+                          /{" "}
                           {new Date(item.updated_at).getMonth() + 1 < 10
                             ? "0" +
                               (
@@ -169,24 +178,25 @@ export default function Home() {
                       </tr>
                     ))
                   ) : (
-                    <h1 className="text-gray-100">Nenhum repositório encontrado.</h1>
+                    <h1 className="text-gray-100">
+                      Nenhum repositório encontrado.
+                    </h1>
                   )}
                 </tbody>
               </table>
             </div>
-                  <ChangePage />
-            
+            <ChangePage />
           </div>
         </div>
       </NavBar>
     );
   } else if (!user.data.name) {
-    return <div data-testid="User">
-      <ErrorPage />
-    </div>
-  } else {
     return (
-      <Loading />
-    )
+      <div data-testid="User">
+        <ErrorPage />
+      </div>
+    );
+  } else {
+    return <Loading />;
   }
 }

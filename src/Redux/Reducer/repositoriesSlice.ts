@@ -29,14 +29,20 @@ export const repositoriesSlice = createSlice({
       state.order = payload;
     },
     clearRepositoriesList: (state) => {
-      state.data =  []
-      state.pages = 1
-      state.totalPages =  1
-      state.sort = "stars"
-      state.order =  "desc"
-    }
+      state.data = [];
+      state.pages = 1;
+      state.totalPages = 1;
+      state.sort = "stars";
+      state.order = "desc";
+    },
   },
 });
 
-export const { setDataRepositories, setPage, setTotalPage, setSort, setOrder, clearRepositoriesList } =
-  repositoriesSlice.actions;
+export const {
+  setDataRepositories,
+  setPage,
+  setTotalPage,
+  setSort,
+  setOrder,
+  clearRepositoriesList,
+} = repositoriesSlice.actions;

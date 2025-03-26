@@ -18,7 +18,7 @@ export const useFetchRepository = () => {
       dispatch(setError(""));
       try {
         const response = await instance.get(`repos/${owner}/${name}`);
-         
+
         if (response.status === 200) {
           const repository = {
             data: {
@@ -35,12 +35,18 @@ export const useFetchRepository = () => {
           };
           dispatch(setDataRepository(repository.data));
         } else {
-          dispatch(setError("Um erro ocorreu ao buscar informações sobre o repositório."));
+          dispatch(
+            setError(
+              "Um erro ocorreu ao buscar informações sobre o repositório."
+            )
+          );
           navigate("/error");
         }
       } catch (error) {
         console.log(error);
-        dispatch(setError("Um erro ocorreu ao buscar informações sobre o repositório."));
+        dispatch(
+          setError("Um erro ocorreu ao buscar informações sobre o repositório.")
+        );
         navigate("/error");
       }
       dispatch(setLoading(false));

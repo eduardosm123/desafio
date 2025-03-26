@@ -31,7 +31,10 @@ export default function Home() {
 
   return (
     <NavBar>
-      <div className="flex flex-col justify-center items-center mt-[10%] w-full" data-testid="Home">
+      <div
+        className="flex flex-col justify-center items-center mt-[10%] w-full"
+        data-testid="Home"
+      >
         <form onSubmit={handleSubmit} className="sm:w-[40%] md:w-[30%]">
           <label className="font-bold text-stone-100">
             Digite o nome do usuário:
