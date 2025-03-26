@@ -13,7 +13,7 @@ A realização de muitas operações (como consulta, ordenação, ver detalhes d
 Tem o objetivo de instalar todos os pacotes para rodar a aplicação localmente.
 
 ```bash
-  npm install
+npm install
 ```
 
 
@@ -24,14 +24,14 @@ Tem o objetivo de instalar todos os pacotes para rodar a aplicação localmente.
 Tem por objetivo executar localmente a aplicação.
 
 ```bash
-  npm run dev
+npm run dev
 ```
 
 Tem por objetivo executar todos os testes desenvolvidos.
 
 
 ```bash
-  npm run test
+npm run test
 ```
 
 
@@ -39,7 +39,7 @@ Tem por objetivo executar todos os testes desenvolvidos, mostrando detalhes de c
 
 
 ```bash
-  npm run test:cov
+npm run test:cov
 ```
 
 
